@@ -1,0 +1,1039 @@
+{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onUnload"
+	],
+	"windowTitle": "WebP Studio",
+	"destination": "detailScreen",
+	"method": "method.4dm",
+	"pages": [
+		{
+			"objects": {
+				"title": {
+					"type": "text",
+					"left": 24,
+					"top": 14,
+					"width": 520,
+					"height": 38,
+					"text": "WebP Studio",
+					"class": "app-title"
+				},
+				"subtitle": {
+					"type": "text",
+					"left": 24,
+					"top": 54,
+					"width": 660,
+					"height": 16,
+					"text": "A guided tour of miyako/webp 20.0.0: convert, inspect, batch, capabilities, and every failure the component can report.",
+					"class": "app-sub"
+				},
+				"status": {
+					"type": "input",
+					"left": 700,
+					"top": 18,
+					"width": 276,
+					"height": 26,
+					"dataSource": "Form.status",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"class": "pill"
+				},
+				"tab": {
+					"type": "tab",
+					"left": 24,
+					"top": 86,
+					"width": 620,
+					"height": 30,
+					"labels": [
+						"1 Convert",
+						"2 Inspector",
+						"3 Batch",
+						"4 Capabilities",
+						"5 Error Lab"
+					],
+					"action": "gotoPage",
+					"fontSize": 12
+				}
+			}
+		},
+		{
+			"objects": {
+				"lblSource": {
+					"type": "text",
+					"left": 24,
+					"top": 140,
+					"width": 372,
+					"height": 14,
+					"text": "SOURCE SAMPLE",
+					"class": "label"
+				},
+				"ddSource": {
+					"type": "dropdown",
+					"left": 24,
+					"top": 158,
+					"width": 372,
+					"height": 28,
+					"dataSource": "Form.sourceChoice",
+					"dataSourceTypeHint": "object"
+				},
+				"cardIn": {
+					"type": "rectangle",
+					"left": 24,
+					"top": 196,
+					"width": 372,
+					"height": 237,
+					"class": "preview-card"
+				},
+				"picIn": {
+					"type": "picture",
+					"left": 32,
+					"top": 204,
+					"width": 356,
+					"height": 221,
+					"dataSource": "Form.sourcePicture",
+					"pictureFormat": "truncatedCenter"
+				},
+				"srcInfo": {
+					"type": "input",
+					"left": 24,
+					"top": 442,
+					"width": 372,
+					"height": 80,
+					"dataSource": "Form.sourceInfo",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"multiline": "yes",
+					"wordwrap": "normal",
+					"scrollbarVertical": "automatic",
+					"class": "detail"
+				},
+				"lblOut": {
+					"type": "text",
+					"left": 416,
+					"top": 140,
+					"width": 372,
+					"height": 14,
+					"text": "OUTPUT PREVIEW",
+					"class": "label"
+				},
+				"cardOut": {
+					"type": "rectangle",
+					"left": 416,
+					"top": 196,
+					"width": 372,
+					"height": 237,
+					"class": "preview-card"
+				},
+				"picOut": {
+					"type": "picture",
+					"left": 424,
+					"top": 204,
+					"width": 356,
+					"height": 221,
+					"dataSource": "Form.outputPicture",
+					"pictureFormat": "truncatedCenter"
+				},
+				"outInfo": {
+					"type": "input",
+					"left": 416,
+					"top": 442,
+					"width": 372,
+					"height": 80,
+					"dataSource": "Form.outputInfo",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"multiline": "yes",
+					"wordwrap": "normal",
+					"scrollbarVertical": "automatic",
+					"class": "detail"
+				},
+				"lblTarget": {
+					"type": "text",
+					"left": 804,
+					"top": 140,
+					"width": 172,
+					"height": 14,
+					"text": "TARGET FORMAT",
+					"class": "label"
+				},
+				"ddFormat": {
+					"type": "dropdown",
+					"left": 804,
+					"top": 158,
+					"width": 172,
+					"height": 28,
+					"dataSource": "Form.formatChoice",
+					"dataSourceTypeHint": "object"
+				},
+				"chkLossless": {
+					"type": "checkbox",
+					"left": 804,
+					"top": 196,
+					"width": 172,
+					"height": 20,
+					"text": "Lossless",
+					"dataSource": "Form.lossless",
+					"dataSourceTypeHint": "boolean"
+				},
+				"lblQuality": {
+					"type": "text",
+					"left": 804,
+					"top": 226,
+					"width": 80,
+					"height": 14,
+					"text": "QUALITY",
+					"class": "label"
+				},
+				"ruler": {
+					"type": "ruler",
+					"left": 804,
+					"top": 242,
+					"width": 172,
+					"height": 34,
+					"dataSource": "Form.quality",
+					"dataSourceTypeHint": "number",
+					"min": 0,
+					"max": 100,
+					"step": 1,
+					"showGraduations": true,
+					"graduationStep": 25,
+					"labelsPlacement": "none",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"qualityValue": {
+					"type": "input",
+					"left": 804,
+					"top": 280,
+					"width": 60,
+					"height": 24,
+					"dataSource": "Form.quality",
+					"dataSourceTypeHint": "number",
+					"enterable": false
+				},
+				"qualityMax": {
+					"type": "text",
+					"left": 872,
+					"top": 284,
+					"width": 60,
+					"height": 16,
+					"text": "/ 100",
+					"class": "hint"
+				},
+				"btnConvert": {
+					"type": "button",
+					"left": 804,
+					"top": 314,
+					"width": 172,
+					"height": 38,
+					"text": "Convert →",
+					"method": "ObjectMethods/btnConvert.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-primary",
+					"style": "roundedBevel",
+					"textAlign": "center",
+					"defaultButton": true
+				},
+				"savings": {
+					"type": "progress",
+					"left": 804,
+					"top": 360,
+					"width": 172,
+					"height": 14,
+					"dataSource": "Form.savings",
+					"dataSourceTypeHint": "number",
+					"min": 0,
+					"max": 100
+				},
+				"savingsLabel": {
+					"type": "text",
+					"left": 804,
+					"top": 378,
+					"width": 172,
+					"height": 14,
+					"text": "bar: bytes saved vs input",
+					"class": "hint"
+				},
+				"chkMeta": {
+					"type": "checkbox",
+					"left": 804,
+					"top": 400,
+					"width": 172,
+					"height": 20,
+					"text": "Carry metadata",
+					"dataSource": "Form.carryMetadata",
+					"dataSourceTypeHint": "boolean"
+				},
+				"chkDry": {
+					"type": "checkbox",
+					"left": 804,
+					"top": 424,
+					"width": 172,
+					"height": 20,
+					"text": "Dry run (no file)",
+					"dataSource": "Form.dryRun",
+					"dataSourceTypeHint": "boolean"
+				},
+				"lblBackground": {
+					"type": "text",
+					"left": 804,
+					"top": 452,
+					"width": 172,
+					"height": 14,
+					"text": "JPEG BACKGROUND",
+					"class": "label"
+				},
+				"txtBackground": {
+					"type": "input",
+					"left": 804,
+					"top": 470,
+					"width": 172,
+					"height": 26,
+					"dataSource": "Form.background",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"class": "hint"
+				},
+				"backgroundHint": {
+					"type": "text",
+					"left": 804,
+					"top": 500,
+					"width": 172,
+					"height": 16,
+					"text": "(only used for JPEG)",
+					"class": "hint"
+				},
+				"lblDiag": {
+					"type": "text",
+					"left": 24,
+					"top": 532,
+					"width": 300,
+					"height": 14,
+					"text": "DIAGNOSTICS / ENVELOPE",
+					"class": "label"
+				},
+				"diagnostics": {
+					"type": "input",
+					"left": 24,
+					"top": 550,
+					"width": 952,
+					"height": 114,
+					"dataSource": "Form.diagnostics",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"multiline": "yes",
+					"wordwrap": "normal",
+					"scrollbarVertical": "automatic",
+					"class": "detail"
+				}
+			}
+		},
+		{
+			"objects": {
+				"lblInspect": {
+					"type": "text",
+					"left": 24,
+					"top": 140,
+					"width": 400,
+					"height": 14,
+					"text": "SAMPLE TO PROBE",
+					"class": "label"
+				},
+				"ddInspect": {
+					"type": "dropdown",
+					"left": 24,
+					"top": 158,
+					"width": 400,
+					"height": 28,
+					"dataSource": "Form.inspectChoice",
+					"dataSourceTypeHint": "object"
+				},
+				"btnInspect": {
+					"type": "button",
+					"left": 436,
+					"top": 158,
+					"width": 110,
+					"height": 28,
+					"text": "Inspect",
+					"method": "ObjectMethods/btnInspect2.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"inspectJson": {
+					"type": "input",
+					"left": 24,
+					"top": 200,
+					"width": 464,
+					"height": 300,
+					"dataSource": "Form.inspectText",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"multiline": "yes",
+					"wordwrap": "normal",
+					"scrollbarVertical": "automatic",
+					"class": "detail"
+				},
+				"cardInspect": {
+					"type": "rectangle",
+					"left": 504,
+					"top": 200,
+					"width": 472,
+					"height": 300,
+					"class": "preview-card"
+				},
+				"picInspect": {
+					"type": "picture",
+					"left": 516,
+					"top": 212,
+					"width": 448,
+					"height": 276,
+					"dataSource": "Form.inspectPicture",
+					"pictureFormat": "truncatedCenter"
+				},
+				"inspectNotes": {
+					"type": "input",
+					"left": 24,
+					"top": 516,
+					"width": 952,
+					"height": 148,
+					"dataSource": "Form.inspectNotes",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"multiline": "yes",
+					"wordwrap": "normal",
+					"scrollbarVertical": "automatic",
+					"class": "detail"
+				}
+			}
+		},
+		{
+			"objects": {
+				"batchIntro": {
+					"type": "text",
+					"left": 24,
+					"top": 140,
+					"width": 952,
+					"height": 18,
+					"text": "One fixed policy for every fixture: WebP · quality 80 · explicit page 1 only for multi-page TIFF.",
+					"class": "app-sub"
+				},
+				"btnBatch": {
+					"type": "button",
+					"left": 24,
+					"top": 166,
+					"width": 250,
+					"height": 34,
+					"text": "Convert all samples → WebP",
+					"method": "ObjectMethods/btnBatch.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-primary",
+					"style": "roundedBevel",
+					"textAlign": "center"
+				},
+				"batchSummary": {
+					"type": "input",
+					"left": 290,
+					"top": 166,
+					"width": 686,
+					"height": 34,
+					"dataSource": "Form.batchSummary",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"class": "detail"
+				},
+				"lbBatch": {
+					"type": "listbox",
+					"listboxType": "collection",
+					"left": 24,
+					"top": 216,
+					"width": 952,
+					"height": 400,
+					"dataSource": "Form.batchRows",
+					"resizingMode": "legacy",
+					"rowHeight": "26px",
+					"verticalAlign": "middle",
+					"class": "lb",
+					"columns": [
+						{
+							"name": "colBSample",
+							"dataSource": "This.sample",
+							"width": 210,
+							"minWidth": 140,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colBSample",
+								"text": "Sample"
+							},
+							"footer": {
+								"name": "ftr_colBSample",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colBInput",
+							"dataSource": "This.input",
+							"width": 70,
+							"minWidth": 60,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colBInput",
+								"text": "Input"
+							},
+							"footer": {
+								"name": "ftr_colBInput",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colBMode",
+							"dataSource": "This.mode",
+							"width": 90,
+							"minWidth": 80,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colBMode",
+								"text": "Output"
+							},
+							"footer": {
+								"name": "ftr_colBMode",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colBIn",
+							"dataSource": "This.inSize",
+							"width": 80,
+							"minWidth": 70,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colBIn",
+								"text": "In bytes"
+							},
+							"footer": {
+								"name": "ftr_colBIn",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colBOut",
+							"dataSource": "This.outSize",
+							"width": 80,
+							"minWidth": 70,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colBOut",
+								"text": "Out bytes"
+							},
+							"footer": {
+								"name": "ftr_colBOut",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colBSave",
+							"dataSource": "This.saving",
+							"width": 70,
+							"minWidth": 60,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colBSave",
+								"text": "Change"
+							},
+							"footer": {
+								"name": "ftr_colBSave",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colBResult",
+							"dataSource": "This.result",
+							"width": 90,
+							"minWidth": 80,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colBResult",
+								"text": "Result"
+							},
+							"footer": {
+								"name": "ftr_colBResult",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colBNote",
+							"dataSource": "This.note",
+							"width": 262,
+							"minWidth": 160,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colBNote",
+								"text": "Diagnostic / failure"
+							},
+							"footer": {
+								"name": "ftr_colBNote",
+								"truncateMode": "none"
+							}
+						}
+					]
+				},
+				"batchNote": {
+					"type": "text",
+					"left": 24,
+					"top": 632,
+					"width": 952,
+					"height": 18,
+					"text": "A failed row never aborts the batch: each call returns its own envelope.",
+					"class": "hint"
+				}
+			}
+		},
+		{
+			"objects": {
+				"btnCaps": {
+					"type": "button",
+					"left": 24,
+					"top": 140,
+					"width": 190,
+					"height": 30,
+					"text": "Reload capabilities",
+					"method": "ObjectMethods/btnCaps.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"capSummary": {
+					"type": "input",
+					"left": 226,
+					"top": 140,
+					"width": 750,
+					"height": 30,
+					"dataSource": "Form.capSummary",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"class": "detail"
+				},
+				"lbCaps": {
+					"type": "listbox",
+					"listboxType": "collection",
+					"left": 24,
+					"top": 186,
+					"width": 952,
+					"height": 236,
+					"dataSource": "Form.capRows",
+					"resizingMode": "legacy",
+					"rowHeight": "26px",
+					"verticalAlign": "middle",
+					"class": "lb",
+					"columns": [
+						{
+							"name": "colCFormat",
+							"dataSource": "This.format",
+							"width": 110,
+							"minWidth": 90,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colCFormat",
+								"text": "Format"
+							},
+							"footer": {
+								"name": "ftr_colCFormat",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colCRead",
+							"dataSource": "This.read",
+							"width": 70,
+							"minWidth": 60,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colCRead",
+								"text": "Read"
+							},
+							"footer": {
+								"name": "ftr_colCRead",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colCWrite",
+							"dataSource": "This.write",
+							"width": 70,
+							"minWidth": 60,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colCWrite",
+								"text": "Write"
+							},
+							"footer": {
+								"name": "ftr_colCWrite",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colCAlpha",
+							"dataSource": "This.alpha",
+							"width": 120,
+							"minWidth": 100,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colCAlpha",
+								"text": "Alpha"
+							},
+							"footer": {
+								"name": "ftr_colCAlpha",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colCAnim",
+							"dataSource": "This.animation",
+							"width": 130,
+							"minWidth": 110,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colCAnim",
+								"text": "Animation"
+							},
+							"footer": {
+								"name": "ftr_colCAnim",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colCMeta",
+							"dataSource": "This.metadata",
+							"width": 210,
+							"minWidth": 160,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colCMeta",
+								"text": "Metadata write"
+							},
+							"footer": {
+								"name": "ftr_colCMeta",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colCBackend",
+							"dataSource": "This.backend",
+							"width": 242,
+							"minWidth": 160,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colCBackend",
+								"text": "Backend"
+							},
+							"footer": {
+								"name": "ftr_colCBackend",
+								"truncateMode": "none"
+							}
+						}
+					],
+					"currentItemSource": "Form.selectedCap"
+				},
+				"capDetail": {
+					"type": "input",
+					"left": 24,
+					"top": 442,
+					"width": 952,
+					"height": 220,
+					"dataSource": "Form.capDetail",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"multiline": "yes",
+					"wordwrap": "normal",
+					"scrollbarVertical": "automatic",
+					"class": "detail"
+				}
+			}
+		},
+		{
+			"objects": {
+				"errIntro": {
+					"type": "text",
+					"left": 24,
+					"top": 138,
+					"width": 952,
+					"height": 34,
+					"text": "Every button asks the component to fail in one specific way. Rows keep the whole envelope: failureKind, code, message — plus the JSON the UI received. 4D runtime errors (for example the picture read that fails on the corrupt fixture) are logged to webp-demo-work/runtime-errors.log.",
+					"class": "app-sub"
+				},
+				"lblErrButtons": {
+					"type": "text",
+					"left": 24,
+					"top": 178,
+					"width": 400,
+					"height": 14,
+					"text": "TRIGGER A FAILURE",
+					"class": "label"
+				},
+				"btnError1": {
+					"type": "button",
+					"left": 24,
+					"top": 196,
+					"width": 300,
+					"height": 32,
+					"text": "1 · Unknown option",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"btnError2": {
+					"type": "button",
+					"left": 342,
+					"top": 196,
+					"width": 300,
+					"height": 32,
+					"text": "2 · Corrupt input",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"btnError3": {
+					"type": "button",
+					"left": 660,
+					"top": 196,
+					"width": 300,
+					"height": 32,
+					"text": "3 · Unsupported input",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"btnError4": {
+					"type": "button",
+					"left": 24,
+					"top": 236,
+					"width": 300,
+					"height": 32,
+					"text": "4 · Missing file",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"btnError5": {
+					"type": "button",
+					"left": 342,
+					"top": 236,
+					"width": 300,
+					"height": 32,
+					"text": "5 · Resource limit",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"btnError6": {
+					"type": "button",
+					"left": 660,
+					"top": 236,
+					"width": 300,
+					"height": 32,
+					"text": "6 · Multi-page TIFF",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"btnError7": {
+					"type": "button",
+					"left": 24,
+					"top": 276,
+					"width": 300,
+					"height": 32,
+					"text": "7 · Alpha → JPEG",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"btnError8": {
+					"type": "button",
+					"left": 342,
+					"top": 276,
+					"width": 300,
+					"height": 32,
+					"text": "8 · Windows target on macOS",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"btnError9": {
+					"type": "button",
+					"left": 660,
+					"top": 276,
+					"width": 300,
+					"height": 32,
+					"text": "9 · Success that prints a diagnostic",
+					"method": "ObjectMethods/btnError.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				},
+				"lbErrors": {
+					"type": "listbox",
+					"listboxType": "collection",
+					"left": 24,
+					"top": 326,
+					"width": 952,
+					"height": 212,
+					"dataSource": "Form.errorsRows",
+					"resizingMode": "legacy",
+					"rowHeight": "26px",
+					"verticalAlign": "middle",
+					"class": "lb",
+					"columns": [
+						{
+							"name": "colEScenario",
+							"dataSource": "This.scenario",
+							"width": 220,
+							"minWidth": 160,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colEScenario",
+								"text": "Scenario"
+							},
+							"footer": {
+								"name": "ftr_colEScenario",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colEKind",
+							"dataSource": "This.kind",
+							"width": 90,
+							"minWidth": 80,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colEKind",
+								"text": "failureKind"
+							},
+							"footer": {
+								"name": "ftr_colEKind",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colECode",
+							"dataSource": "This.code",
+							"width": 175,
+							"minWidth": 140,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colECode",
+								"text": "code"
+							},
+							"footer": {
+								"name": "ftr_colECode",
+								"truncateMode": "none"
+							}
+						},
+						{
+							"name": "colEMessage",
+							"dataSource": "This.message",
+							"width": 447,
+							"minWidth": 260,
+							"truncateMode": "none",
+							"header": {
+								"name": "hdr_colEMessage",
+								"text": "message"
+							},
+							"footer": {
+								"name": "ftr_colEMessage",
+								"truncateMode": "none"
+							}
+						}
+					],
+					"currentItemSource": "Form.selectedError"
+				},
+				"errDetail": {
+					"type": "input",
+					"left": 24,
+					"top": 550,
+					"width": 952,
+					"height": 118,
+					"dataSource": "Form.errorDetail",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"multiline": "yes",
+					"wordwrap": "normal",
+					"scrollbarVertical": "automatic",
+					"class": "detail"
+				},
+				"btnClear": {
+					"type": "button",
+					"left": 24,
+					"top": 678,
+					"width": 140,
+					"height": 30,
+					"text": "Clear",
+					"method": "ObjectMethods/btnClearErrors.4dm",
+					"events": [
+						"onClick"
+					],
+					"class": "btn-secondary",
+					"style": "regular",
+					"textAlign": "center"
+				}
+			}
+		}
+	]
+}

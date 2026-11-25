@@ -1,0 +1,122 @@
+/* WebP Studio — form stylesheet
+   Visual properties live here; structural properties stay in each .4DForm. */
+
+.app-title {
+	fontSize: 26px;
+	fontWeight: bold;
+	stroke: automatic;
+}
+
+.app-sub {
+	fontSize: 12px;
+	stroke: automatic;
+}
+
+.section-title {
+	fontSize: 14px;
+	fontWeight: bold;
+	stroke: automatic;
+}
+
+.label {
+	fontSize: 11px;
+	fontWeight: bold;
+	stroke: automatic;
+}
+
+.hint {
+	fontSize: 11;
+	stroke: #6B7280;
+}
+
+.mono {
+	fontFamily: Menlo;
+	fontSize: 11;
+}
+
+.detail {
+	fontFamily: Menlo;
+	fontSize: 11;
+	fill: #FBFCFE;
+	stroke: automatic;
+	borderStyle: solid;
+	borderRadius: 6;
+}
+
+.preview-card {
+	fill: #FFFFFF;
+	stroke: #C9D2DE;
+	borderStyle: solid;
+	borderRadius: 8;
+}
+
+.card {
+	fill: #F6F8FB;
+	stroke: #DCE3EC;
+	borderStyle: solid;
+	borderRadius: 10;
+}
+
+.pill {
+	fontSize: 11;
+	fill: #EAF2FF;
+	stroke: #1F4E79;
+	borderStyle: solid;
+	borderRadius: 11;
+	textAlign: center;
+}
+
+.btn-primary {
+	fontSize: 14px;
+	fontWeight: bold;
+	textAlign: center;
+	fill: #1F5FA8;
+	stroke: #FFFFFF;
+}
+
+.btn-secondary {
+	fontSize: 12px;
+	textAlign: center;
+}
+
+.btn-danger {
+	fontSize: 12px;
+	textAlign: center;
+	fill: #7A2E3B;
+	stroke: #FFFFFF;
+}
+
+.lb {
+	stroke: automatic;
+	alternateFill: automaticAlternate;
+}
+
+@media (prefers-color-scheme: dark) {
+	.hint {
+		stroke: #9CA8B8;
+	}
+	.detail {
+		fill: #141A22;
+		stroke: #D6DEE8;
+	}
+	.preview-card {
+		fill: #0E141B;
+		stroke: #3C4A5A;
+	}
+	.card {
+		fill: #161D26;
+		stroke: #2C3948;
+	}
+	.pill {
+		fill: #16283D;
+		stroke: #BFD9F5;
+	}
+	.btn-primary {
+		fill: #2C6DB4;
+		stroke: #FFFFFF;
+	}
+	.btn-danger {
+		fill: #8C3848;
+		stroke: #FFFFFF;
+	}
+}

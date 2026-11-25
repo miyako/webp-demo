@@ -1,0 +1,22 @@
+If (FORM Event.code=On Clicked)
+	Case of
+		: (FORM Event.objectName="btnError1")
+			Studio_RunErrorCase(1)
+		: (FORM Event.objectName="btnError2")
+			Studio_RunErrorCase(2)
+		: (FORM Event.objectName="btnError3")
+			Studio_RunErrorCase(3)
+		: (FORM Event.objectName="btnError4")
+			Studio_RunErrorCase(4)
+		: (FORM Event.objectName="btnError5")
+			Studio_RunErrorCase(5)
+		: (FORM Event.objectName="btnError6")
+			Studio_RunErrorCase(6)
+		: (FORM Event.objectName="btnError7")
+			Studio_RunErrorCase(7)
+		: (FORM Event.objectName="btnError8")
+			Studio_RunErrorCase(8)
+		: (FORM Event.objectName="btnError9")
+			Studio_RunErrorCase(9)
+	End case
+End if

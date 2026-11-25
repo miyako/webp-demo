@@ -1,0 +1,9 @@
+{
+	"version": 2100,
+	"dependencies": {
+		"webp": {
+			"github": "miyako/webp",
+			"version": "20.0.0"
+		}
+	}
+}

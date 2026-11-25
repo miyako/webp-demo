@@ -1,0 +1,117 @@
+{
+	"component": "webp 20.0.0",
+	"cli": "1.0.0",
+	"workFolder": "Macintosh HD:Users:miyako:Documents:GitHub:webp-demo:webp-demo-work:",
+	"checks": [
+		{
+			"check": "version() resolves the verified CLI",
+			"ok": true,
+			"detail": "cli 1.0.0"
+		},
+		{
+			"check": "capabilities() lists the format registry",
+			"ok": true,
+			"detail": "6 entries, protocol 1"
+		},
+		{
+			"check": "convert handles aurora.png",
+			"ok": true,
+			"detail": "10.9 KB → 7.5 KB (webp)"
+		},
+		{
+			"check": "convert handles garden.jpg",
+			"ok": true,
+			"detail": "protocol/invalid_protocol · Success requires exit zero and empty stderr"
+		},
+		{
+			"check": "convert handles orbit.webp",
+			"ok": true,
+			"detail": "5.2 KB → 5.2 KB (webp)"
+		},
+		{
+			"check": "convert handles spinner.gif",
+			"ok": true,
+			"detail": "346.9 KB → 63.3 KB (webp)"
+		},
+		{
+			"check": "convert handles layers.tiff",
+			"ok": true,
+			"detail": "979.4 KB → 3.5 KB (webp)"
+		},
+		{
+			"check": "convert handles briefing.bmp",
+			"ok": true,
+			"detail": "750.0 KB → 5.2 KB (webp)"
+		},
+		{
+			"check": "convert handles corrupt.png",
+			"ok": true,
+			"detail": "converter/corrupt_input · corrupt or truncated input: unexpected end of file"
+		},
+		{
+			"check": "convert handles notes.txt",
+			"ok": true,
+			"detail": "converter/unsupported_input · cannot read input as any supported image: could not determine the input format (magic bytes unrecognised; try --from FMT)"
+		},
+		{
+			"check": "batch: 5 convert, 1 protocol-blocked, 2 rejected",
+			"ok": true,
+			"detail": "5 ok, 1 blocked, 2 rejected"
+		},
+		{
+			"check": "inspect() accepts truncated PNG while convert() rejects it",
+			"ok": true,
+			"detail": "inspect ok=True · convert corrupt_input"
+		},
+		{
+			"check": "multi-page TIFF without page is refused",
+			"ok": true,
+			"detail": "converter/unsupported_input · cannot read input as any supported image: tiff contains 2 pages; pass --page N to select one explicitly (never silently dropping pages)"
+		},
+		{
+			"check": "multi-page TIFF with page 1 converts",
+			"ok": true,
+			"detail": "3.5 KB"
+		},
+		{
+			"check": "alpha PNG → JPEG without background is refused",
+			"ok": true,
+			"detail": "converter/missing_option · target jpeg cannot store alpha; --background #RRGGBB is required to flatten (no silent loss)"
+		},
+		{
+			"check": "alpha PNG → JPEG with background is blocked by the protocol check (20.0.0)",
+			"ok": true,
+			"detail": "protocol/invalid_protocol · Success requires exit zero and empty stderr"
+		},
+		{
+			"check": "unknown option is argument/invalid_argument",
+			"ok": true,
+			"detail": "argument/invalid_argument · Unsupported option for convert: auto_orient"
+		},
+		{
+			"check": "max-input-bytes is a resource_limit_exceeded",
+			"ok": true,
+			"detail": "converter/resource_limit_exceeded · resource limit exceeded: input is 11254 bytes; exceeds --max-input-bytes (10)"
+		},
+		{
+			"check": "Windows-x64 target fails with unsupported_architecture",
+			"ok": true,
+			"detail": "process/unsupported_architecture · macOS requires macOS-universal"
+		},
+		{
+			"check": "animated GIF converts to WebP",
+			"ok": true,
+			"detail": "63.3 KB"
+		},
+		{
+			"check": "success + info diagnostic → protocol/invalid_protocol (20.0.0 defect)",
+			"ok": true,
+			"detail": "protocol/invalid_protocol · Success requires exit zero and empty stderr"
+		}
+	],
+	"failures": [],
+	"inputBytes": 2182031,
+	"outputBytes": 87098,
+	"passed": true,
+	"ranAt": "2026-11-25T13:45:00.475Z"
+}
