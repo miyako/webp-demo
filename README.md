@@ -4,7 +4,7 @@ An interactive 4D demo of [`miyako/webp`](https://github.com/miyako/webp) **20.0
 component that wraps the `webp-convert` CLI. Every screen runs the real component against
 real fixtures; nothing is mocked.
 
-The demo is built to show four different things:
+The demo is built to show five different things:
 
 1. **Convert** — one sample, one format, live metrics, preview, and the full envelope
    diagnostics for the run.
