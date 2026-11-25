@@ -29,7 +29,9 @@ submodule (branch `dist`). Consult these before changing behavior:
 - Headless: `tool4d --project Project/webp-demo.4DProject
   --startup-method=Studio_SelfTest --dataless --skip-onstartup`
   (21 checks; writes `selftest-report.json`).
-- Analyzer: `tools/4dlsp/tool4d-lsp-stdio validate --workspace Project …`.
+- Analyzer: provision `4dlsp` with the `4dtools` skill first (it installs
+  `tools/4dlsp/tool4d-lsp-stdio`, which Git ignores), then
+  `tools/4dlsp/tool4d-lsp-stdio validate --workspace Project …`.
   `cs.WebP` unknown-class warnings are expected from the vendored component.
 - Screenshots: full 4D only (no `tool4d`, no `--headless`), running
   `CaptureScreenshots` with `--user-param "<action>:<page>:<path>.png"`.
