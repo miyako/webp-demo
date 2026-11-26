@@ -97,13 +97,15 @@
 					"class": "preview-card"
 				},
 				"picIn": {
-					"type": "picture",
+					"type": "input",
 					"left": 32,
 					"top": 204,
 					"width": 356,
 					"height": 221,
 					"dataSource": "Form.sourcePicture",
-					"pictureFormat": "truncatedCenter"
+					"pictureFormat": "proportionalCenter",
+					"dataSourceTypeHint": "picture",
+					"enterable": false
 				},
 				"srcInfo": {
 					"type": "input",
@@ -137,13 +139,15 @@
 					"class": "preview-card"
 				},
 				"picOut": {
-					"type": "picture",
+					"type": "input",
 					"left": 424,
 					"top": 204,
 					"width": 356,
 					"height": 221,
 					"dataSource": "Form.outputPicture",
-					"pictureFormat": "truncatedCenter"
+					"pictureFormat": "proportionalCenter",
+					"dataSourceTypeHint": "picture",
+					"enterable": false
 				},
 				"outInfo": {
 					"type": "input",
@@ -401,13 +405,15 @@
 					"class": "preview-card"
 				},
 				"picInspect": {
-					"type": "picture",
+					"type": "input",
 					"left": 516,
 					"top": 212,
 					"width": 448,
 					"height": 276,
 					"dataSource": "Form.inspectPicture",
-					"pictureFormat": "truncatedCenter"
+					"pictureFormat": "proportionalCenter",
+					"dataSourceTypeHint": "picture",
+					"enterable": false
 				},
 				"inspectNotes": {
 					"type": "input",
